@@ -1,0 +1,19 @@
+[package]
+name = "codex-transcript"
+version = { workspace = true }
+edition = { workspace = true }
+
+[[bin]]
+name = "codex-transcript"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+codex-core = { path = "../core" }
+codex-exec = { path = "../exec" }
+codex-protocol = { path = "../protocol" }
+serde_json = "1"

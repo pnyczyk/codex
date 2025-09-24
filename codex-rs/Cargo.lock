@@ -901,6 +901,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "codex-transcript"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "codex-core",
+ "codex-exec",
+ "codex-protocol",
+ "serde_json",
+]
+
+[[package]]
 name = "codex-tui"
 version = "0.0.0"
 dependencies = [

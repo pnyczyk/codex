@@ -8,6 +8,7 @@ use std::io::Read;
 use std::path::PathBuf;
 
 pub use cli::Cli;
+pub use cli::Color;
 use codex_core::AuthManager;
 use codex_core::BUILT_IN_OSS_MODEL_PROVIDER_ID;
 use codex_core::ConversationManager;
@@ -23,7 +24,9 @@ use codex_core::protocol::Op;
 use codex_core::protocol::TaskCompleteEvent;
 use codex_ollama::DEFAULT_OSS_MODEL;
 use codex_protocol::config_types::SandboxMode;
-use event_processor_with_human_output::EventProcessorWithHumanOutput;
+pub use event_processor::CodexStatus;
+pub use event_processor::EventProcessor;
+pub use event_processor_with_human_output::EventProcessorWithHumanOutput;
 use event_processor_with_json_output::EventProcessorWithJsonOutput;
 use tracing::debug;
 use tracing::error;
@@ -31,8 +34,6 @@ use tracing::info;
 use tracing_subscriber::EnvFilter;
 
 use crate::cli::Command as ExecCommand;
-use crate::event_processor::CodexStatus;
-use crate::event_processor::EventProcessor;
 use codex_core::find_conversation_path_by_id_str;
 
 pub async fn run_main(cli: Cli, codex_linux_sandbox_exe: Option<PathBuf>) -> anyhow::Result<()> {

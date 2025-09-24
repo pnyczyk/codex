@@ -43,7 +43,7 @@ use codex_common::create_config_summary_entries;
 /// This should be configurable. When used in CI, users may not want to impose
 /// a limit so they can see the full transcript.
 const MAX_OUTPUT_LINES_FOR_EXEC_TOOL_CALL: usize = 20;
-pub(crate) struct EventProcessorWithHumanOutput {
+pub struct EventProcessorWithHumanOutput {
     call_id_to_command: HashMap<String, ExecCommandBegin>,
     call_id_to_patch: HashMap<String, PatchApplyBegin>,
 
@@ -69,7 +69,7 @@ pub(crate) struct EventProcessorWithHumanOutput {
 }
 
 impl EventProcessorWithHumanOutput {
-    pub(crate) fn create_with_ansi(
+    pub fn create_with_ansi(
         with_ansi: bool,
         config: &Config,
         last_message_path: Option<PathBuf>,
